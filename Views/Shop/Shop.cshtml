@@ -1,0 +1,16 @@
+﻿@using BBaB.Models
+@model BBaB.ViewModels.WeaponViewModel
+@{ 
+    List<WeaponModel> inventory = (List<WeaponModel>)ViewData["inventory"];
+    foreach(WeaponModel w in inventory)
+    {
+    <div>
+        <label>@w._make</label><br/>
+        <label>@w._model</label><br />
+        <label>@w._caliber</label><br />
+        <label>@w._price</label><br />
+        <hr />
+    </div>
+    }
+}
+

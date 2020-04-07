@@ -1,0 +1,36 @@
+﻿@using BBaB.Models
+@model BBaB.ViewModels.WeaponViewModel
+<table class="table">
+    <tr>
+        <td>Make</td>
+        <td>Model</td>
+        <td>Caliber</td>
+        <td>Price</td>
+    </tr>
+    @{
+
+        List<WeaponModel> inventory = (List<WeaponModel>)ViewData["inventory"];
+        foreach (WeaponModel w in inventory)
+        {
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(model => model._make)</td>
+                    <td> @Html.DisplayFor(model => model._model)</td>
+                    <td>@Html.DisplayFor(model => model._caliber)</td>
+                    <td> @Html.DisplayFor(model => model._price)</td>
+                    <td>
+                        <input type="submit" value="Remove" class="btn btn-default" />
+                    </td>
+                </tr>
+            </tbody>
+        }
+
+    }
+</table>
+<div>
+    Total: <!--Display the total price of the entire cart-->
+</div>
+<div class="col-md-offset-2 col-md-10">
+    <input type="submit" value="Checkout" class="btn btn-default" />
+</div>
+

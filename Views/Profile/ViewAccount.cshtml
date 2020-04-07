@@ -1,0 +1,67 @@
+﻿@model BBaB.ViewModels.Profile.ViewAccountModel
+
+@{
+    ViewBag.Title = "View Account";
+}
+
+<h2>Account</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model._fullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._fullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._userName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._phoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._phoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._email)
+        </dd>
+
+    </dl>
+</div>
+
+@using (Html.BeginForm("OnDelete", "Profile", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model._id);
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("Update", "Profile", FormMethod.Get))
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-default" />
+        </div>
+    </div>
+}

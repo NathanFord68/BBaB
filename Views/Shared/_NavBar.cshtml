@@ -1,0 +1,39 @@
+﻿@using BBaB.Models
+@{
+    PrincipalModel principal = (PrincipalModel)HttpContext.Current.Session["principal"];
+}
+<nav>
+    <ul class="h-menu mx-0 bg-black">
+        @{
+            if ((HttpContext.Current.Session["principal"]) != null)
+            {
+                <li>
+                    <a href="" class="brand no-hover bg-black fg-white">
+                        <span class="p-2">
+                            <b>Hello:</b> @principal._fullName
+                        </span>
+                    </a>
+                </li>
+            }
+        }
+
+
+
+        @{
+            if ((HttpContext.Current.Session["isLoggedIn"]) == null)
+            {
+                <li class="bg-hover-light3 fg-white"><a href="@Url.Action("Login", "Profile")">Login</a></li>
+                <li class="bg-hover-light3 fg-white"><a href="@Url.Action("Register", "Profile")">Register</a></li>
+            }
+            else
+            {
+                <!--TODO Make this only accessable to admins-->
+                <li class="bg-hover-light3 fg-white"><a href="@Url.Action("AddWeapon", "Admin")">Add Weapon</a></li>
+                <li class="bg-hover-light3 fg-white"><a href="@Url.Action("Shop", "Shop")">Shop</a></li>
+                <li class="bg-hover-light3 fg-white"><a href="@Url.Action("ViewAccount", "Profile")">Account</a></li>
+                <li class="bg-hover-light3 fg-white"><a href="@Url.Action("OnLogout", "Profile")">Logout</a></li>
+
+            }
+        }
+    </ul>
+</nav>

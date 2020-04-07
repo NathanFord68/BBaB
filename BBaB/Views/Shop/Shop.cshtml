@@ -1,0 +1,42 @@
+﻿@using BBaB.Models
+@model BBaB.ViewModels.WeaponViewModel
+    <div class="grid">
+        <div class="row">
+            @{
+                    List<WeaponModel> inventory = (List<WeaponModel>)ViewData["inventory"];
+                    BBaB.Models.PrincipalModel principal = (BBaB.Models.PrincipalModel)HttpContext.Current.Session["principal"];
+                    foreach (WeaponModel w in inventory)
+                    {
+                    <div class="cell-4">
+                        <div class="card">
+                            <div class="card-header">
+                                @w._make
+                            </div>
+                            <div class="card-content">
+                                <label>Model: @w._model</label><br />
+                                <label>Caliber: @w._caliber</label><br />
+                                <label>Price: @w._price.ToString("c2")</label>
+                            </div>
+                            <div class="card-footer">
+                                @using (Html.BeginForm("onAddToCart", "Shop", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" value="@w._id" name="weaponId"/>
+                                    <button type="submit">Add To Cart</button>
+                                }
+                                @if (principal._adminLevel == 2 || principal._adminTitle.Equals("InventoryManager"))
+                                {
+                                    <form action="" method="get">
+                                        <button type="submit">Edit Item</button>
+                                    </form>
+                                    }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        
+    </div>
+
+
