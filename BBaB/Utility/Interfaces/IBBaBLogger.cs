@@ -17,5 +17,6 @@ namespace BBaB.Utility.Interfaces
         void Error(String i, String m);
 
         void Error(String i, String m, Exception e);
+
     }
 }

@@ -15,6 +15,7 @@ namespace BBaB.Utility
             this.logger = LogManager.GetLogger("BBaBLogsRules");
         }
 
+
         public void Debug(String i, String m)
         {
             this.logger.Debug(i + " " + m);
