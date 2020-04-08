@@ -171,7 +171,7 @@ namespace BBaB.Service.Business
 
                 //Get the data layer
                 this.logger.Info("No account info available", "Getting data layer CartData");
-                ICrud<CartModel> cartData = new CartData(connection);
+                ICrud<CartModel> cartData = new CartData(connection, this.logger);
 
                 //Pass model to be added to the cart
                 this.logger.Info("No account info available", "Passing cart to be created");
@@ -202,7 +202,7 @@ namespace BBaB.Service.Business
 
                 //Get the data layer
                 this.logger.Info("No account info available", "Getting data layer CartData");
-                ICrud<CartModel> cartData = new CartData(connection);
+                ICrud<CartModel> cartData = new CartData(connection, this.logger);
 
                 //Get the inventory
                 this.logger.Info("No account info available", "Getting cart data from data layer");

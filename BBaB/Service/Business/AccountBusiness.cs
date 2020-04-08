@@ -43,7 +43,7 @@ namespace BBaB.Service.Business
                 connection.Open();
 
                 this.logger.Info(cartItem._customer._credentials._email, "Getting data layer CartData");
-                ICrud<CartModel> cartData = new CartData(connection);
+                ICrud<CartModel> cartData = new CartData(connection, this.logger);
 
                 this.logger.Info(cartItem._customer._credentials._email, "Passing cart item to be added");
                 cartData.CreateT(cartItem);
@@ -185,7 +185,7 @@ namespace BBaB.Service.Business
 
                 //Instantiate the data layer
                 this.logger.Info(model._credentials._email, "Getting data layer CartData");
-                ICrud<CartModel> cartData = new CartData(connection);
+                ICrud<CartModel> cartData = new CartData(connection, this.logger);
 
                 //Make the cart
                 this.logger.Info(model._credentials._email, "Passing model to retrieve the cart data from the data layer");
@@ -228,8 +228,8 @@ namespace BBaB.Service.Business
 
                 //Create the data layer
                 this.logger.Info(cart._customer._credentials._email, "Getting data layer InvoiceData, CartData, AddressData, WeaponData");
-                ICrud<InvoiceModel> invoiceData = new InvoiceData(connection);
-                ICrud<CartModel> cartData = new CartData(connection);
+                ICrud<InvoiceModel> invoiceData = new InvoiceData(connection, this.logger);
+                ICrud<CartModel> cartData = new CartData(connection, this.logger);
                 ICrud<AddressModel> addressData = new AddressData(connection, this.logger);
                 ICrud<WeaponModel> weaponData = new WeaponData(connection);
 
@@ -412,7 +412,7 @@ namespace BBaB.Service.Business
             {
                 connection.Open();
                 //Get the data layer
-                ICrud<CartModel> cartData = new CartData(connection);
+                ICrud<CartModel> cartData = new CartData(connection, this.logger);
 
                 //Delete the item from the cart
                 cartData.DeleteT(cart);
@@ -472,7 +472,7 @@ namespace BBaB.Service.Business
 
                 //Get the data layer
                 this.logger.Info(customer._credentials._email, "Getting data layer InvoiceData");
-                ICrud<InvoiceModel> invoiceData = new InvoiceData(connection);
+                ICrud<InvoiceModel> invoiceData = new InvoiceData(connection, this.logger);
 
                 //Get the invoice for this user
                 this.logger.Info(customer._credentials._email, "Retriving the invoice from the data layer");
