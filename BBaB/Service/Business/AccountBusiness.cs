@@ -152,7 +152,7 @@ namespace BBaB.Service.Business
                 //Get the data layer
 
                 this.logger.Info(model._credentials._email, "Getting data layer AddressData");
-                ICrud<AddressModel> addressData = new AddressData(connection);
+                ICrud<AddressModel> addressData = new AddressData(connection, this.logger);
 
                 //Pass the model to get the data
                 this.logger.Info(model._credentials._email, "Passing model to get the address of this user");
@@ -230,7 +230,7 @@ namespace BBaB.Service.Business
                 this.logger.Info(cart._customer._credentials._email, "Getting data layer InvoiceData, CartData, AddressData, WeaponData");
                 ICrud<InvoiceModel> invoiceData = new InvoiceData(connection);
                 ICrud<CartModel> cartData = new CartData(connection);
-                ICrud<AddressModel> addressData = new AddressData(connection);
+                ICrud<AddressModel> addressData = new AddressData(connection, this.logger);
                 ICrud<WeaponModel> weaponData = new WeaponData(connection);
 
                 try
@@ -379,7 +379,7 @@ namespace BBaB.Service.Business
 
                 //Get the data layer
                 this.logger.Info(model._resident._credentials._email, "Getting data layer AddressData");
-                ICrud<AddressModel> addressData = new AddressData(connection);
+                ICrud<AddressModel> addressData = new AddressData(connection, this.logger);
 
                 //Pass model to be stored
                 this.logger.Info(model._resident._credentials._email, "Passing model to the data layer");
@@ -438,7 +438,7 @@ namespace BBaB.Service.Business
 
                 //Get the data layer
                 this.logger.Info(model._resident._credentials._email, "Getting data layer AddressData");
-                ICrud<AddressModel> addressData = new AddressData(connection);
+                ICrud<AddressModel> addressData = new AddressData(connection, this.logger);
 
                 //Update the model
                 this.logger.Info(model._resident._credentials._email, "Passing model to be updated");
