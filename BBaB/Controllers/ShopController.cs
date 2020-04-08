@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BBaB.Utility.Interfaces;
 
 namespace BBaB.Controllers
 {
@@ -18,7 +19,6 @@ namespace BBaB.Controllers
         {
             this._weaponBusinss = weaponBusiness;
             this.logger = logger;
-            this.logger.Info(cartItem._customer._email, "Entering ShopController");
         }
         public ViewResult Cart()
         {

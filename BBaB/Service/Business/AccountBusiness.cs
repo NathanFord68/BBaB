@@ -71,7 +71,7 @@ namespace BBaB.Service.Business
 
                 //Instantiate the data layer
                 this.logger.Info(model._credentials._email, "Getting data layer AccountData");
-                ICrud<PrincipalModel> accountData = new AccountData(connection);
+                ICrud<PrincipalModel> accountData = new AccountData(connection, this.logger);
 
                 //Get the database account for this user.
                 this.logger.Info(model._credentials._email, "Getting the recorded model for this user");
@@ -120,7 +120,7 @@ namespace BBaB.Service.Business
                 connection.Open();
 
                 this.logger.Info(model._credentials._email, "Getting data layer AccountData");
-                ICrud<PrincipalModel> crud = new AccountData(connection);
+                ICrud<PrincipalModel> crud = new AccountData(connection, this.logger);
 
                 this.logger.Info(model._credentials._email, "Passing model to be deleted in the data layer");
                 crud.DeleteT(model);
@@ -309,7 +309,7 @@ namespace BBaB.Service.Business
 
                 //Get data layer
                 this.logger.Info(model._credentials._email, "Getting data lyaer AccountData");
-                ICrud<PrincipalModel> accountData = new AccountData(connection);
+                ICrud<PrincipalModel> accountData = new AccountData(connection, this.logger);
 
                 //Update account
                 this.logger.Info(model._credentials._email, "Passing model to be updated in data layer");
@@ -349,7 +349,7 @@ namespace BBaB.Service.Business
 
                 //Get data layer
                 this.logger.Info(model._credentials._email, "Getting data layer AccountData");
-                ICrud<PrincipalModel> accountData = new AccountData(connection);
+                ICrud<PrincipalModel> accountData = new AccountData(connection, this.logger);
 
                 //Send data to be processed
                 this.logger.Info(model._credentials._email, "Passing model to be registered in data layer");
@@ -505,7 +505,7 @@ namespace BBaB.Service.Business
 
                 //Get the data layer
                 this.logger.Info(model._credentials._email, "Getting data layer AccountData");
-                ICrud<PrincipalModel> accountData = new AccountData(connection);
+                ICrud<PrincipalModel> accountData = new AccountData(connection, this.logger);
 
                 ///Authenticate the old password
                 //
