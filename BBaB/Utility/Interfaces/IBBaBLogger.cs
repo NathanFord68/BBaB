@@ -8,15 +8,19 @@ namespace BBaB.Utility.Interfaces
 {
     public interface IBBaBLogger
     {
-        void Debug(String i, String m);
 
-        void Info(String i, String m);
+        void Debug(string m);
+        void Debug(string i, string m);
 
-        void Warning(String i, String m);
+        void Info(string m);
+        void Info(string i, string m);
 
-        void Error(String i, String m);
+        void Warning(string m);
+        void Warning(string i, string m);
 
-        void Error(String i, String m, Exception e);
+        void Error(string m, Exception e);
+
+        void Error(string i, string m, Exception e);
 
     }
 }

@@ -15,28 +15,40 @@ namespace BBaB.Utility
             this.logger = LogManager.GetLogger("BBaBLogsRules");
         }
 
-
-        public void Debug(String i, String m)
+        public void Debug(string m)
+        {
+            this.logger.Debug(m);
+        }
+        public void Debug(string i, string m)
         {
             this.logger.Debug(i + " " + m);
         }
 
-        public void Info(String i, String m)
+        public void Info(string m)
+        {
+            this.logger.Info(m);
+        }
+
+        public void Info(string i, string m)
         {
             this.logger.Info(i + " " + m);
         }
+        public void Warning(string m)
+        {
+            this.logger.Warn(m);
+        }
 
-        public void Warning(String i, String m)
+        public void Warning(string i, string m)
         {
             this.logger.Warn(i + " " + m);
         }
 
-        public void Error(String i, String m)
+        public void Error(string m, Exception e)
         {
-            this.logger.Error(i + " " + m);
+            this.logger.Error(e, m);
         }
 
-        public void Error(String i, String m, Exception e)
+        public void Error(string i, string m, Exception e)
         {
             this.logger.Error(e, i + " " + m);
         }
