@@ -21,17 +21,16 @@ namespace BBaB.Controllers
         {
             this._accountBusiness = accountBusiness;
             this.logger = logger;
-            this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Entering ProfileController");
         }
         public ViewResult Login()
         {
-            this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning Login View from Login() in ProfileController");
+            this.logger.Info("Returning Login View from Login() in ProfileController");
             return View();
         }
 
         public ViewResult Register()
         {
-            this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning Registration View from Register() in ProfileController");
+            this.logger.Info("Returning Registration View from Register() in ProfileController");
             return View("Registration");
         }
 
@@ -99,12 +98,12 @@ namespace BBaB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult OnLogin(LoginModel model)
         {
-            this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Entering onLogin in ProfileController");
+            this.logger.Info(model._email, "Entering onLogin in ProfileController");
             try
             {
             if (!ModelState.IsValid)
             {
-                    this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning Login View from onLogin() in ProfileCOntroller");
+                    this.logger.Info(model._email, "Returning Login View from onLogin() in ProfileCOntroller");
                     return View("Login");
             }
             PrincipalModel principal = model.toPrincipal();
@@ -112,22 +111,22 @@ namespace BBaB.Controllers
 
             HttpContext.Session.Add("isLoggedIn", true);
             HttpContext.Session.Add("principal", principal);
-                this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Populating a ViewAcountModel");
+                this.logger.Info(model._email, "Populating a ViewAcountModel");
                 ViewAccountModel vam = new ViewAccountModel(
                     principal._id,
                     principal._fullName,
                     principal._userName,
                     principal._phoneNumber,
                     principal._credentials._email);
-                this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning ViewAccount View from onLogin() in ProfileController with ViewAccountModel");
+                this.logger.Info(model._email, "Returning ViewAccount View from onLogin() in ProfileController with ViewAccountModel");
                 return View("ViewAccount", vam);
             }
             catch (Exception e)
             {
-                this.logger.Error(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Error occured in onLogin()", e);
+                this.logger.Error(model._email, "Error occured in onLogin()", e);
                 ViewBag.Error = e.Message;
                 Console.WriteLine(e.StackTrace);
-                this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning Login View from onLogin() in ProfileController");
+                this.logger.Info(model._email, "Returning Login View from onLogin() in ProfileController");
                 return View("Login");
             }
 
@@ -224,7 +223,7 @@ namespace BBaB.Controllers
         {
             this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Entering OnLogout() in ProfileController");
             HttpContext.Session.Clear();
-            this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning a Login and Profile RedirectToAction from OnLogout() in ProfileController");
+            this.logger.Info("Returning a Login and Profile RedirectToAction from OnLogout() in ProfileController");
             return RedirectToAction("Login", "Profile");
         }
     }
