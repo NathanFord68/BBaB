@@ -79,7 +79,7 @@ namespace BBaB.Service.Business
 
                 //Salt the logging in users password
                 this.logger.Info("Salting the inputed password for comparison");
-                model._credentials._password = new StringManipulator().HashPassword(account._salt + model._credentials._password);
+                model._credentials._password = new StringManipulator(this.logger).HashPassword(account._salt + model._credentials._password);
 
                 //Compare passwords
                 this.logger.Info("Comparing the passwords to authenticate account");
@@ -330,7 +330,7 @@ namespace BBaB.Service.Business
             this.logger.Info("Entering AccountBusiness@RegisterAccount");
 
             //Get a String Manipulator class
-            StringManipulator strManip = new StringManipulator();
+            StringManipulator strManip = new StringManipulator(this.logger);
 
             //Get a salt value
             this.logger.Info("Creating a new salt value for account");
@@ -514,7 +514,7 @@ namespace BBaB.Service.Business
                 PrincipalModel account = accountData.ReadTByField(model);
 
                 //Create the string manipulator
-                StringManipulator sm = new StringManipulator();
+                StringManipulator sm = new StringManipulator(this.logger);
                 //Hash the old password
                 this.logger.Info("Hashing the user's old password");
                 model._credentials._password = sm.HashPassword(account._salt + model._credentials._password);
