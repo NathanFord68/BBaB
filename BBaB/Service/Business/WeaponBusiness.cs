@@ -28,26 +28,26 @@ namespace BBaB.Service.Business
          */
         public void AddWeaponInventory(WeaponModel model)
         {
-            this.logger.Info("No account info available", "Entering WeaponBusiness@AddWeaponInventory");
+            this.logger.Info("Entering WeaponBusiness@AddWeaponInventory");
 
             //Get a connection
-            this.logger.Info("No account info available", "Getting a connection to the database");
+            this.logger.Info("Getting a connection to the database");
             using (SqlConnection connection = _connect.GetConnection())
             {
                 //open connection
-                this.logger.Info("No account info available", "Opening a connection with the database");
+                this.logger.Info("Opening a connection with the database");
                 connection.Open();
 
                 //Get the data layer
-                this.logger.Info("No account info available", "Getting data layer WeaponData");
-                ICrud<WeaponModel> weaponData = new WeaponData(connection);
+                this.logger.Info("Getting data layer WeaponData");
+                ICrud<WeaponModel> weaponData = new WeaponData(connection, this.logger);
 
                 //Pass the model to be added
-                this.logger.Info("No account info available", "Passing model to be added to be added to inventory");
+                this.logger.Info("Passing model to be added to be added to inventory");
                 weaponData.CreateT(model);
 
                 //close the connection
-                this.logger.Info("No account info available", "Closing the database connection");
+                this.logger.Info("Closing the database connection");
                 connection.Close();
             }
         }
@@ -57,30 +57,30 @@ namespace BBaB.Service.Business
          */
         public void DeleteWeaponFromInventory(WeaponModel model)
         {
-            this.logger.Info("No account info available", "Entering WeaponBusiness@DeleteWeaponFromInventory");
+            this.logger.Info("Entering WeaponBusiness@DeleteWeaponFromInventory");
 
             //Get a connection
-            this.logger.Info("No account info available", "Getting a connection to the database");
+            this.logger.Info("Getting a connection to the database");
             using (SqlConnection connection = _connect.GetConnection())
             {
                 //open connection
-                this.logger.Info("No account info available", "Opening connection to the database");
+                this.logger.Info("Opening connection to the database");
                 connection.Open();
 
                 //Get the data layer
-                this.logger.Info("No account info available", "Getting data layer WeaponData");
-                ICrud<WeaponModel> weaponData = new WeaponData(connection);
+                this.logger.Info("Getting data layer WeaponData");
+                ICrud<WeaponModel> weaponData = new WeaponData(connection, this.logger);
 
                 //Pass the model to be deleted
-                this.logger.Info("No account info available", "Passing model to be deleted from inventory");
+                this.logger.Info("Passing model to be deleted from inventory");
                 weaponData.DeleteT(model);
 
                 //close the connection
-                this.logger.Info("No account info available", "Closing connection to the database");
+                this.logger.Info("Closing connection to the database");
                 connection.Close();
             }
 
-            this.logger.Info("No account info available", "Exiting WeaponBusiness@DeleteWeaponFromInventory");
+            this.logger.Info("Exiting WeaponBusiness@DeleteWeaponFromInventory");
         }
 
         /**
@@ -88,29 +88,29 @@ namespace BBaB.Service.Business
          */
         public void EditWeapon(WeaponModel model)
         {
-            this.logger.Info("No account info available", "Entering WeaponBusiness@EditWeapon");
+            this.logger.Info("Entering WeaponBusiness@EditWeapon");
 
             //Get a connection
-            this.logger.Info("No account info available", "Getting a connection to the database");
+            this.logger.Info("Getting a connection to the database");
             using (SqlConnection connection = _connect.GetConnection())
             {
                 //open connection
-                this.logger.Info("No account info available", "Opening a connection to the database");
+                this.logger.Info("Opening a connection to the database");
                 connection.Open();
 
                 //Get the data layer
-                this.logger.Info("No account info available", "Getting data layer WeaponData");
-                ICrud<WeaponModel> weaponData = new WeaponData(connection);
+                this.logger.Info("Getting data layer WeaponData");
+                ICrud<WeaponModel> weaponData = new WeaponData(connection, this.logger);
 
                 //Pass the model to be updated
-                this.logger.Info("No account info available", "Passing model to be edited");
+                this.logger.Info("Passing model to be edited");
                 weaponData.UpdateT(model);
 
                 //close the connection
-                this.logger.Info("No account info available", "Closing connection to the database");
+                this.logger.Info("Closing connection to the database");
                 connection.Close();
             }
-            this.logger.Info("No account info available", "Exiting WeaponBusiness@EditWeapon");
+            this.logger.Info("Exiting WeaponBusiness@EditWeapon");
         }
 
         /**
@@ -118,34 +118,34 @@ namespace BBaB.Service.Business
          */
         public List<WeaponModel> GetAllWeapons()
         {
-            this.logger.Info("No account info available", "Entering WeaponBusiness@GetAllWeapons");
+            this.logger.Info("Entering WeaponBusiness@GetAllWeapons");
 
             //Create a default list
             List<WeaponModel> weapons;
 
             //Get a connection
-            this.logger.Info("No account info available", "Getting a connection to the database");
+            this.logger.Info("Getting a connection to the database");
             using (SqlConnection connection = _connect.GetConnection())
             {
                 //open connection
-                this.logger.Info("No account info available", "Opening connection to the database");
+                this.logger.Info("Opening connection to the database");
                 connection.Open();
 
                 //Get the data layer
-                this.logger.Info("No account info available", "Getting data layer WeaponData");
-                ICrud<WeaponModel> weaponData = new WeaponData(connection);
+                this.logger.Info("Getting data layer WeaponData");
+                ICrud<WeaponModel> weaponData = new WeaponData(connection, this.logger);
 
                 //Populate the list
-                this.logger.Info("No account info available", "Retrieve the list of weapons");
+                this.logger.Info("Retrieve the list of weapons");
                 weapons = weaponData.ReadAllT();
 
                 //close the connection
-                this.logger.Info("No account info available", "Closing connection with the database");
+                this.logger.Info("Closing connection with the database");
                 connection.Close();
             }
 
             //Return list
-            this.logger.Info("No account info available", "Returning weapons list from WeaponBusiness@GetAllWeapons");
+            this.logger.Info("Returning weapons list from WeaponBusiness@GetAllWeapons");
             return weapons;
         }
 
@@ -154,7 +154,7 @@ namespace BBaB.Service.Business
          */
         public void AddWeaponToCart(int weaponId, int principalId)
         {
-            this.logger.Info("No account info available", "Entering WeaponBusiness@AddWeaponToCart");
+            this.logger.Info("Entering WeaponBusiness@AddWeaponToCart");
 
             //Add the id's to be added to the cart
             CartModel cart = new CartModel();
@@ -162,27 +162,27 @@ namespace BBaB.Service.Business
             cart._weaponToUpdate._id = weaponId;
 
             //Get a connection to the database
-            this.logger.Info("No account info available", "Getting connection to database");
+            this.logger.Info("Getting connection to database");
             using (SqlConnection connection = this._connect.GetConnection())
             {
                 //Open the connection
-                this.logger.Info("No account info available", "Opening connection to database");
+                this.logger.Info("Opening connection to database");
                 connection.Open();
 
                 //Get the data layer
-                this.logger.Info("No account info available", "Getting data layer CartData");
+                this.logger.Info("Getting data layer CartData");
                 ICrud<CartModel> cartData = new CartData(connection, this.logger);
 
                 //Pass model to be added to the cart
-                this.logger.Info("No account info available", "Passing cart to be created");
+                this.logger.Info("Passing cart to be created");
                 cartData.CreateT(cart);
 
                 //Close the connection
-                this.logger.Info("No account info available", "Closing connection to database");
+                this.logger.Info("Closing connection to database");
                 connection.Close();
             }
 
-            this.logger.Info("No account info available", "Exiting WeaponBusiness@AddWeaponToCart");
+            this.logger.Info("Exiting WeaponBusiness@AddWeaponToCart");
         }
 
         /**
@@ -190,31 +190,31 @@ namespace BBaB.Service.Business
          */
         public List<WeaponModel> GetCart(int principalId)
         {
-            this.logger.Info("No account info available", "Entering WeaponBusiness@GetCart");
+            this.logger.Info("Entering WeaponBusiness@GetCart");
             List<WeaponModel> cartInventory;
 
-            this.logger.Info("No account info available", "Getting connection to database");
+            this.logger.Info("Getting connection to database");
             using (SqlConnection connection = this._connect.GetConnection())
             {
                 //Open the connection
-                this.logger.Info("No account info available", "Opening connection to database");
+                this.logger.Info("Opening connection to database");
                 connection.Open();
 
                 //Get the data layer
-                this.logger.Info("No account info available", "Getting data layer CartData");
+                this.logger.Info("Getting data layer CartData");
                 ICrud<CartModel> cartData = new CartData(connection, this.logger);
 
                 //Get the inventory
-                this.logger.Info("No account info available", "Getting cart data from data layer");
+                this.logger.Info("Getting cart data from data layer");
                 cartInventory = cartData.ReadTById(principalId)._weapons;
 
                 //Close the connection
-                this.logger.Info("No account info available", "Closing connection to database");
+                this.logger.Info("Closing connection to database");
                 connection.Close();
             }
 
             //Return the inventory
-            this.logger.Info("No account info available", "Returning cart weapons list from WeaponBusiness@GetCart");
+            this.logger.Info("Returning cart weapons list from WeaponBusiness@GetCart");
             return cartInventory;
         }
     }
