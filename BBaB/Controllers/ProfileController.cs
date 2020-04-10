@@ -68,27 +68,27 @@ namespace BBaB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult OnRegister(RegistrationModel user)
         {
-            this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Entering onRegister() in ProfileController");
+            this.logger.Info(user._email, "Entering onRegister() in ProfileController");
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning Registration View from onRegister() in ProfileController");
+                    this.logger.Info(user._email, "Returning Registration View from onRegister() in ProfileController");
                     return View("Registration");
                 }
 
                 PrincipalModel principal = new PrincipalModel();
                 principal = user.ToPrincipal();
                 _accountBusiness.RegisterAccount(principal);
-                this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning Login View from onRegister() in ProfileController");
+                this.logger.Info(user._email, "Returning Login View from onRegister() in ProfileController");
                 return View("Login");
             }
             catch (Exception e)
             {
-                this.logger.Error(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Error occured in onRegister()", e);
+                this.logger.Error(user._email, "Error occured in onRegister()", e);
                 ViewBag.Error = e.Message;
                 Console.WriteLine(e.StackTrace);
-                this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning Registration View from onRegister() in ProfileController");
+                this.logger.Info(user._email, "Returning Registration View from onRegister() in ProfileController");
                 return View("Registration");
             }
 
