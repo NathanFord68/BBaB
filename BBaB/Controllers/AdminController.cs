@@ -21,6 +21,9 @@ namespace BBaB.Controllers
             this.logger = logger;
         }
 
+
+
+
         [HttpGet]
         public ActionResult AddWeapon()
         {
