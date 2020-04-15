@@ -8,18 +8,20 @@
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
 <body>
-    <div>
-        @RenderPage("_NavBar.cshtml")
-    </div>
+    <div class="fullview">
+        <div>
+            @RenderPage("_NavBar.cshtml")
+        </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+
+        <footer class="text-center fixed-bottom pb-4">
+            <p>&copy; @DateTime.Now.Year - Nathan Ford, Dominic Sutton @@GCU CST-323</p>
         </footer>
     </div>
-
+    
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 </body>
 </html>

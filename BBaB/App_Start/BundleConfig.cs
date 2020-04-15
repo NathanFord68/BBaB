@@ -11,7 +11,8 @@ namespace BBaB.App_Start
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/metro-all.min.css")
+                "~/Content/metro-all.min.css",
+                "~/Content/muse.css")
                 .IncludeDirectory("~/Content", ".css"));
 
             bundles.Add(new ScriptBundle("~/Scripts").Include(

@@ -140,6 +140,7 @@
     <Content Include="Content\metro-third.min.css" />
     <Content Include="Content\metro.css" />
     <Content Include="Content\metro.min.css" />
+    <Content Include="Content\muse.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="mif\metro.svg" />
