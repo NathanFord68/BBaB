@@ -1,20 +1,22 @@
 ﻿
 @model BBaB.ViewModels.Profile.LoginModel
 
-    <div class="container border border-radius-4 bd-gray mt-8 mw-100-sm mw-75-md mw-50-lg">
-        @using (Html.BeginForm("OnLogin", "Profile", FormMethod.Post))
+    <div class="container d-flex flex-justify-center flex-column bg-grayWhite h-100 w-75">
+        @using (Html.BeginForm("OnLogin", "Profile", FormMethod.Post, new { @class = "border mx-auto border-radius-6 p-3 w-75 bd-gray drop-shadow" }))
         {
             @Html.AntiForgeryToken()
+
+            <h3>Login</h3>
 
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                 <div class="form-group">
                     @Html.LabelFor(model => model._email, htmlAttributes: new { @class = "d-inline-block" })
-
-                    @Html.EditorFor(model => model._email, new { htmlAttributes = new { @class = "primary d-inline-block" } })
-                    @Html.ValidationMessageFor(model => model._email, "", new { @class = "text-danger" })
-
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model._email, new { htmlAttributes = new { @class = "primary d-inline-block" } })
+                        @Html.ValidationMessageFor(model => model._email, "", new { @class = "text-danger" })
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -27,7 +29,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Login" class="btn btn-default" />
+                        <input type="submit" value="Login" class="button dark" />
                     </div>
                 </div>
             </div>

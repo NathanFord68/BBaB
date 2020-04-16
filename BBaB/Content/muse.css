@@ -1,4 +1,5 @@
-﻿.fullview { height: 100vh; }
+﻿.halfview { height: 50vh; }
+.fullview { height: 100vh; }
 
 /* TRANSPARENCY */
 .bg-tranparent { background-color: transparent; }
@@ -14,6 +15,7 @@
 
 .body-content {
     background-image: url('Images/site-background.jpg');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
