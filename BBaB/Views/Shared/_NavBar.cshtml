@@ -3,12 +3,12 @@
     PrincipalModel principal = (PrincipalModel)HttpContext.Current.Session["principal"];
 }
 <nav>
-    <ul class="h-menu mx-0 bg-black">
+    <ul class="h-menu mx-0 bg-darkGray">
         @{
             if ((HttpContext.Current.Session["principal"]) != null)
             {
                 <li>
-                    <a href="" class="brand no-hover bg-black fg-white">
+                    <a href="" class="brand no-hover fg-white">
                         <span class="p-2">
                             <b>Hello:</b> @principal._fullName
                         </span>

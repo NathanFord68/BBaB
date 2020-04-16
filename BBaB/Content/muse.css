@@ -1,3 +1,19 @@
-﻿.fullview {
-    height: 100vh;
+﻿.fullview { height: 100vh; }
+
+/* TRANSPARENCY */
+.bg-tranparent { background-color: transparent; }
+.op-10 { opacity: 0.1; }
+.op-20 { opacity: 0.2; }
+.op-30 { opacity: 0.3; }
+.op-40 { opacity: 0.4; }
+.op-50 { opacity: 0.5; }
+.op-60 { opacity: 0.6; }
+.op-70 { opacity: 0.7; }
+.op-80 { opacity: 0.8; }
+.op-90 { opacity: 0.9; }
+
+.body-content {
+    background-image: url('Images/site-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
 }
