@@ -4,64 +4,68 @@
     ViewBag.Title = "View Account";
 }
 
-<h2>Account</h2>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
 
-        <dt>
-            @Html.DisplayNameFor(model => model._fullName)
-        </dt>
+    <div class="container bg-grayWhite h-100 w-75">
+        <div class="container drop-shadow p-4">
 
-        <dd>
-            @Html.DisplayFor(model => model._fullName)
-        </dd>
+            <h2>Account</h2>
+            <hr />
 
-        <dt>
-            @Html.DisplayNameFor(model => model._userName)
-        </dt>
+            <dl class="">
+                <dt>
+                    @Html.DisplayNameFor(model => model._fullName)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model._userName)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model._fullName)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model._phoneNumber)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model._userName)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model._phoneNumber)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model._userName)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model._email)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model._phoneNumber)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model._email)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model._phoneNumber)
+                </dd>
 
-    </dl>
-</div>
+                <dt>
+                    @Html.DisplayNameFor(model => model._email)
+                </dt>
 
-@using (Html.BeginForm("OnDelete", "Profile", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model._id);
+                <dd>
+                    @Html.DisplayFor(model => model._email)
+                </dd>
+            </dl>
+            <div class="py-4">
+                @using (Html.BeginForm("OnDelete", "Profile", FormMethod.Post, new { @class = "d-inline-block"}))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model._id);
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Delete" class="btn btn-default" />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Delete" class="button dark" />
+                        </div>
+                    </div>
+                }
+
+                @using (Html.BeginForm("Update", "Profile", FormMethod.Get, new { @class = "d-inline-block"}))
+                {
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Update" class="button dark" />
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
     </div>
-}
-
-@using (Html.BeginForm("Update", "Profile", FormMethod.Get))
-{
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Update" class="btn btn-default" />
-        </div>
-    </div>
-}

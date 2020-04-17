@@ -16,7 +16,7 @@ namespace BBaB.ViewModels.Profile
 
         [Required(ErrorMessage = "This is a required field.")]
         [Display(Name = "User Name")]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Size must be between 5 and 50 characters.")]
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "Size must be between 5 and 50 characters.")]
         public string _username { get; set; }
 
         [Required(ErrorMessage = "This is a required field.")]
