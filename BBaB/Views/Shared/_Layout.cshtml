@@ -1,28 +1,26 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-</head>
-<body class="fullview">
-    <div class="h-100 body-content">
-        <div>
-            @RenderPage("_NavBar.cshtml")
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - BBaB</title>
+        @Styles.Render("~/Content/css")
+    </head>
+    <body class="fullview">
+        <div class="h-100 body-content">
+            <div>
+                @RenderPage("_NavBar.cshtml")
+            </div>
+            <div class="container d-flex flex-column flex-justify-center h-100">
+                @RenderBody()
+
+                <footer class="pb-4">
+                    <p class="fg-dark">&copy; @DateTime.Now.Year - Nathan Ford, Dominic Sutton @@ GCU CST-323</p>
+                </footer>
+            </div>
+
         </div>
-        <div class="container d-flex flex-column flex-justify-center h-vh-75 ">
-            @RenderBody()
 
-            <footer class="text-center fixed-bottom pb-4">
-                <p class="fg-light">&copy; @DateTime.Now.Year - Nathan Ford, Dominic Sutton @@ GCU CST-323</p>
-            </footer>
-        </div>
-
-
-        
-    </div>
-    
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-</body>
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    </body>
 </html>

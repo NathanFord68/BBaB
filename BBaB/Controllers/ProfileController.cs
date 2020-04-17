@@ -24,12 +24,14 @@ namespace BBaB.Controllers
         }
         public ViewResult Login()
         {
+            ViewBag.Title = "Login";
             this.logger.Info("Returning Login View from Login() in ProfileController");
             return View();
         }
 
         public ViewResult Register()
         {
+            ViewBag.Title = "Register";
             this.logger.Info("Returning Registration View from Register() in ProfileController");
             return View("Registration");
         }
@@ -47,12 +49,14 @@ namespace BBaB.Controllers
         {
             this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Entering Update() in ProfileController");
             PrincipalModel principal = (PrincipalModel)HttpContext.Session["principal"];
+
             this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Populating an UpdateProfileModel");
             UpdateProfileModel upm = new UpdateProfileModel(
                 principal._fullName,
                 principal._credentials._email,
                 principal._phoneNumber,
                 principal._userName);
+
             this.logger.Info(((PrincipalModel)HttpContext.Session["principal"])._credentials._email, "Returning UpdateAccount View from Update() in ProfileController with an UpdatedProfileModel");
             return View("UpdateAccount", upm);
         }
@@ -80,6 +84,7 @@ namespace BBaB.Controllers
                 PrincipalModel principal = new PrincipalModel();
                 principal = user.ToPrincipal();
                 _accountBusiness.RegisterAccount(principal);
+
                 this.logger.Info(user._email, "Returning Login View from onRegister() in ProfileController");
                 return View("Login");
             }
