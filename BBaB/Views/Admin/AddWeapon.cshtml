@@ -3,60 +3,61 @@
 @{
     ViewBag.Title = "AddWeapon";
 }
+    <div class="container d-flex flex-justify-center flex-column bg-grayWhite h-100 w-75">
 
-<h2>Add Weapon</h2>
 
-@using (Html.BeginForm("OnAddWeapon", "Admin", FormMethod.Post)) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model._make, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._make, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._make, "", new { @class = "text-danger" })
+        @using (Html.BeginForm("OnAddWeapon", "Admin", FormMethod.Post, new { @class = "border mx-auto border-radius-6 p-3 w-75 bd-gray drop-shadow" }))
+        {
+            <h2>Add Weapon</h2>
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model._make, htmlAttributes: new { @class = "d-inline-block" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model._make, new { htmlAttributes = new { @class = "primary d-inline-block" } })
+                        @Html.ValidationMessageFor(model => model._make, "", new { @class = "fg-crimson" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model._model, htmlAttributes: new { @class = "d-inline-block" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model._model, new { htmlAttributes = new { @class = "primary d-inline-block" } })
+                        @Html.ValidationMessageFor(model => model._model, "", new { @class = "fg-crimson" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model._caliber, htmlAttributes: new { @class = "d-inline-block" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model._caliber, new { htmlAttributes = new { @class = "primary d-inline-block" } })
+                        @Html.ValidationMessageFor(model => model._caliber, "", new { @class = "fg-crimson" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model._serial, htmlAttributes: new { @class = "d-inline-block" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model._serial, new { htmlAttributes = new { @class = "primary d-inline-block" } })
+                        @Html.ValidationMessageFor(model => model._serial, "", new { @class = "fg-crimson" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model._price, htmlAttributes: new { @class = "d-inline-block" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model._price, new { htmlAttributes = new { @class = "primary d-inline-block" } })
+                        @Html.ValidationMessageFor(model => model._price, "", new { @class = "fg-crimson" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="button dark" />
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._model, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._model, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._model, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._caliber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._caliber, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._caliber, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._serial, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._serial, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._serial, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model._price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model._price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model._price, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
+        }
