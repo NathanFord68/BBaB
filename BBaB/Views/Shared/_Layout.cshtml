@@ -11,13 +11,13 @@
             <div>
                 @RenderPage("_NavBar.cshtml")
             </div>
-            <div class="container d-flex flex-column flex-justify-center h-100">
+            <div class="container d-flex flex-column h-100">
                 @RenderBody()
-
-                <footer class="pb-4">
-                    <p class="fg-dark">&copy; @DateTime.Now.Year - Nathan Ford, Dominic Sutton @@ GCU CST-323</p>
-                </footer>
             </div>
+
+            <footer class="pb-4">
+                <p class="fg-dark">&copy; @DateTime.Now.Year - Nathan Ford, Dominic Sutton @@ GCU CST-323</p>
+            </footer>
 
         </div>
 
